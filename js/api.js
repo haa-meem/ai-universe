@@ -7,7 +7,7 @@ const loadAIComponents = async () => {
 const displayComponents = components => {
     const componentsContainer = document.getElementById('components-container');
     // display 6 components
-    components=components.slice(0,6);
+    components = components.slice(0, 6);
     // display all components
     components.forEach(component => {
         const componentDiv = document.createElement('div');
@@ -16,12 +16,43 @@ const displayComponents = components => {
             <div class="card">
                 <img src="${component.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${component.name}</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h4>Features</h4>
+                    <ol>
+                        <li>${component.features[0]}</li>
+                        <li>${component.features[1]}</li>
+                        <li>${component.features[2]}</li>
+                    </ol>
+                    <hr class="w-100 m-auto">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mt-3">${component.name}</h5>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span class="card-text">${component.published_in}</span>
+                        </div>
+                        <div>
+                            <button class="rounded-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
         componentsContainer.appendChild(componentDiv);
     });
+    toggleSpinner(false);
 }
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
+document.getElementById('btn-see-more').addEventListener('click', function () {
+    toggleSpinner(true);
+})
 loadAIComponents();
