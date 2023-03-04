@@ -53,8 +53,9 @@ const toggleSpinner = isLoading => {
     }
 }
 document.getElementById('btn-see-more').addEventListener('click', function () {
-    // toggleSpinner(true);
+    toggleSpinner(true);
 })
+// AI Components Details
 const loadComponentDetails = async id => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
@@ -67,25 +68,44 @@ const displayComponentDetails = component => {
     <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card">
-      <h5>${component.description}</h4>
+        <h5>${component.description}</h4>
         <div class="card-body">
-        <div class="d-flex">
-          <div>
-          ${component.pricing[0].plan}
-          ${component.pricing[0].price}
-          </div>
-          <div>
-          ${component.pricing[1].plan}
-          ${component.pricing[1].price}
-          </div>
-          <div>
-          ${component.pricing[2].plan}
-          ${component.pricing[2].price}
-          </div>
+            <div class="d-flex">
+                <div>
+                    ${component.pricing[0].plan}
+                    ${component.pricing[0].price}
+                </div>
+                <div>
+                    ${component.pricing[1].plan}
+                    ${component.pricing[1].price}
+                </div>
+                <div>
+                    ${component.pricing[2].plan}
+                    ${component.pricing[2].price}
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col">
+                    <h5>Features</h5>
+                        <ul>
+                            <li>${component.features.feature_name}</li>
+                            <li>${component.features.feature_name}</li>
+                            <li>${component.features.feature_name}</li>
+                            <li>${component.features.feature_name}</li>
+                        </ul>
+                </div>
+                <div class="col">
+                    <h5>Integrations</h5>
+                        <ul>
+                            <li>${component.integrations[0]}</li>
+                            <li>${component.integrations[1]}</li>
+                            <li>${component.integrations[2]}</li>
+                        </ul>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
     </div>
+  </div>
     <div class="col">
       <div class="card">
         <img src="${component.image_link[0]}" class="card-img-top" alt="...">
