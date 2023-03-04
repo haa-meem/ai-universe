@@ -30,7 +30,7 @@ const displayComponents = components => {
                             <span class="card-text">${component.published_in}</span>
                         </div>
                         <div>
-                            <button class="rounded-circle">
+                            <button onclick="loadComponentDetails('${component.id}')" href="#" class="btn btn-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#componentDetailModal">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
@@ -53,6 +53,18 @@ const toggleSpinner = isLoading => {
     }
 }
 document.getElementById('btn-see-more').addEventListener('click', function () {
-    toggleSpinner(true);
+    // toggleSpinner(true);
 })
+const loadComponentDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayComponentDetails(data.data);
+}
+const displayComponentDetails = component=>{
+    const componentDetails=document.getElementById('component-details');
+    componentDetails.innerHTML=`
+    <p>${component.description}</p>
+    `
+}
 loadAIComponents();
