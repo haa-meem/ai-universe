@@ -14,7 +14,7 @@ const displayComponents = components => {
         componentDiv.classList.add('col');
         componentDiv.innerHTML = `
             <div class="card">
-                <img src="${component.image}" class="card-img-top" alt="...">
+                <img src="${component.image}" class="card-img-top p-2 rounded-4" alt="...">
                 <div class="card-body">
                     <h4>Features</h4>
                     <ol>
@@ -108,7 +108,7 @@ const displayComponentDetails = component => {
   </div>
     <div class="col">
       <div class="card">
-        <img src="${component.image_link[0]}" class="card-img-top" alt="...">
+        <img src="${component.image_link[0]}" class="card-img-top p-2 rounded-4" alt="...">
         <div class="card-body">
           <h5 class="card-title">${component.input_output_examples[0].input}</h5>
           <p class="card-text">${component.input_output_examples[0].output}</p>
