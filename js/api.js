@@ -61,10 +61,41 @@ const loadComponentDetails = async id => {
     const data = await res.json();
     displayComponentDetails(data.data);
 }
-const displayComponentDetails = component=>{
-    const componentDetails=document.getElementById('component-details');
-    componentDetails.innerHTML=`
-    <p>${component.description}</p>
+const displayComponentDetails = component => {
+    const componentDetails = document.getElementById('component-details');
+    componentDetails.innerHTML = `
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card">
+      <h5>${component.description}</h4>
+        <div class="card-body">
+        <div class="d-flex">
+          <div>
+          ${component.pricing[0].plan}
+          ${component.pricing[0].price}
+          </div>
+          <div>
+          ${component.pricing[1].plan}
+          ${component.pricing[1].price}
+          </div>
+          <div>
+          ${component.pricing[2].plan}
+          ${component.pricing[2].price}
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="${component.image_link[0]}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${component.input_output_examples[0].input}</h5>
+          <p class="card-text">${component.input_output_examples[0].output}</p>
+        </div>
+      </div>
+    </div>
+  </div>
     `
 }
 loadAIComponents();
