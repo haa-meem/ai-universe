@@ -8,6 +8,7 @@ const displayComponents = components => {
     const componentsContainer = document.getElementById('components-container');
     // display 6 components
     components=components.slice(0,6);
+    // display all components
     components.forEach(component => {
         const componentDiv = document.createElement('div');
         componentDiv.classList.add('col');
