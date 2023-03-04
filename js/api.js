@@ -68,7 +68,7 @@ const displayComponentDetails = component => {
     <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card">
-        <h5>${component.description}</h4>
+        <h5 class="card-title text-center">${component.description}</h4>
         <div class="card-body">
             <div class="d-flex">
                 <div>
@@ -110,8 +110,8 @@ const displayComponentDetails = component => {
       <div class="card">
         <img src="${component.image_link[0]}" class="card-img-top p-2 rounded-4" alt="...">
         <div class="card-body">
-          <h5 class="card-title">${component.input_output_examples[0].input}</h5>
-          <p class="card-text">${component.input_output_examples[0].output}</p>
+          <h5 class="card-title text-center">${component.input_output_examples[0].input}</h5>
+          <p class="card-text text-center">${component.input_output_examples[0].output}</p>
         </div>
       </div>
     </div>
